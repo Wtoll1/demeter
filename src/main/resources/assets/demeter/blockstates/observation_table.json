@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "demeter:block/observation_table" },
+        "facing=south": { "model": "demeter:block/observation_table", "y": 180 },
+        "facing=west": { "model": "demeter:block/observation_table", "y": 270 },
+        "facing=east": { "model": "demeter:block/observation_table", "y": 90 }
+    }
+}

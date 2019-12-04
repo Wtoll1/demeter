@@ -1,0 +1,7 @@
+{
+  "block.demeter.observation_table": "Observation Table",
+  "container.demeter.observation_table": "Observation Table",
+  "item.demeter.fertilizer": "Fertilizer",
+  "property.demeter.yield": "Yield",
+  "property.demeter.growth": "Growth"
+}

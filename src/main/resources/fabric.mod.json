@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "com.wtoll.demeter.Demeter"
+    ],
+    "client": [
+      "com.wtoll.demeter.client.DemeterClient"
     ]
   },
   "mixins": [
