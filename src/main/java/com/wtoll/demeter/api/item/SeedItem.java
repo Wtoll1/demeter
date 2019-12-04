@@ -15,7 +15,6 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
 import java.util.Iterator;
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class SeedItem extends AliasedBlockItem implements DefaultTagItem {
     }
 
     @Environment(EnvType.CLIENT)
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
         CompoundTag tag = stack.getTag();
         if (tag != null) {
             if (tag.getBoolean("observed")) {
