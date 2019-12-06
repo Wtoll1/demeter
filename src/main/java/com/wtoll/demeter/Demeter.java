@@ -16,14 +16,6 @@ import java.util.function.Supplier;
 
 public class Demeter implements ModInitializer {
 
-    // TODO: Biome Specific Growing
-    // TODO: Nutrition Tag
-
-    // TODO: Fix shift click functionality
-    // TODO: Convert to LibGui
-    // TODO: Observation Table Tooltips
-
-
     public static final String MODID = "demeter";
     public static final Logger LOGGER = LogManager.getLogger("Demeter");
 
@@ -35,7 +27,6 @@ public class Demeter implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        LOGGER.info("Who's ready to harvest!");
         Containers.initialize();
         Blocks.initialize();
         Items.initialize();

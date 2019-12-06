@@ -46,7 +46,7 @@ public abstract class CropBlockMixin extends PlantBlock implements ICropBlockMix
     }
 
     @Inject(method = "appendProperties", at = @At("HEAD"))
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder, CallbackInfo callback) {
+    public void appendProperties(StateManager.Builder<Block, BlockState> builder, CallbackInfo callback) {
         Demeter.CROP_PROPERTIES.forEach(builder::add);
     }
 
