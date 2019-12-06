@@ -137,7 +137,10 @@ public abstract class CropBlockMixin extends PlantBlock implements ICropBlockMix
         maxChances *= Math.pow(2, 10);
 
         BlockState floor_state = world.getBlockState(pos.down());
-        chances *= floor_state.get(com.wtoll.demeter.Properties.FERTILIZED) ? 1 : 2;
+        if (floor_state.getProperties().contains(com.wtoll.demeter.Properties.FERTILIZED)) {
+            chances *= floor_state.get(com.wtoll.demeter.Properties.FERTILIZED) ? 1 : 2;
+        }
+
         maxChances *= 2;
 
         // Multiply by mixed in factors
