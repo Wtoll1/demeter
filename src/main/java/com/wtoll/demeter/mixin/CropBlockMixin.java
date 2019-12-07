@@ -213,7 +213,7 @@ public abstract class CropBlockMixin extends PlantBlock implements ICropBlockMix
         for (int x = -1; x <= 1; x++) {
             for (int z = -1; z <= 1; z++) {
                 BlockPos testPosition = pos.add(x, 0, z);
-                if (world.getBlockState(pos.add(x, 0, z)).isAir() && canPlaceAt(world.getBlockState(testPosition), world, testPosition)) {
+                if (world.getBlockState(pos.add(x, 0, z)).isAir() && canPlaceAt(world.getBlockState(pos), world, testPosition)) {
                     airBlocks.add(testPosition);
                 }
             }
