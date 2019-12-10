@@ -6,7 +6,8 @@
     "CropBlockMixin",
     "ItemsMixin",
     "FarmlandBlockMixin",
-    "ItemStackMixin"
+    "ItemStackMixin",
+    "BeetrootsBlockMixin"
   ],
   "client": [
   ],

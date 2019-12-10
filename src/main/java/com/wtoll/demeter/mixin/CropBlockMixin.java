@@ -196,6 +196,7 @@ public abstract class CropBlockMixin extends PlantBlock implements ICropBlockMix
         }
     }
 
+    @SuppressWarnings("unchecked")
     private BlockState constructSpreadState(BlockState state, World world, BlockPos pos) {
         BlockState spreadState = state;
         Iterator<Property> i = Demeter.CROP_PROPERTIES.iterator();
