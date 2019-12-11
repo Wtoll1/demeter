@@ -5,11 +5,16 @@ import com.wtoll.demeter.Utility;
 import com.wtoll.demeter.block.Blocks;
 import com.wtoll.demeter.client.gui.ObservationTableScreen;
 import com.wtoll.demeter.container.Containers;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.screen.ScreenProviderRegistry;
+import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
+import net.fabricmc.fabric.impl.blockrenderlayer.BlockRenderLayerMapImpl;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.util.Identifier;
 
 public class DemeterClient implements ClientModInitializer {
+    @SuppressWarnings("deprecation")
     @Override
     public void onInitializeClient() {
         ScreenProviderRegistry.INSTANCE.registerFactory(Containers.OBSERVATION_TABLE, (syncId, identifier, player, buffer) -> {

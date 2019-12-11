@@ -13,6 +13,11 @@ group = project.maven_group
 minecraft {
 }
 
+repositories {
+	maven { url = "https://maven.fabricmc.net/" }
+	maven { url = "https://jitpack.io" }
+}
+
 dependencies {
 	//to change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
