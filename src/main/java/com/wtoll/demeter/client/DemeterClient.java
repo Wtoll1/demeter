@@ -2,12 +2,10 @@ package com.wtoll.demeter.client;
 
 import com.wtoll.demeter.Demeter;
 import com.wtoll.demeter.Utility;
+import com.wtoll.demeter.block.Blocks;
 import com.wtoll.demeter.client.gui.ObservationTableScreen;
 import com.wtoll.demeter.container.Containers;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
-import net.fabricmc.fabric.api.client.screen.ScreenProviderRegistry;
-import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.util.Identifier;
 
@@ -19,6 +17,8 @@ public class DemeterClient implements ClientModInitializer {
         });
 
         ClientSpriteRegistryCallback.event(SpriteAtlasTexture.BLOCK_ATLAS_TEX).register(this::registerSprites);
+
+        registerRenderers();
     }
 
     private void registerSprites(SpriteAtlasTexture atlas, ClientSpriteRegistryCallback.Registry registry) {
@@ -26,5 +26,10 @@ public class DemeterClient implements ClientModInitializer {
             registry.register(new Identifier(id.getNamespace(), "gui/property/" + id.getPath()));
         });
         registry.register(Utility.id("gui/property/missing"));
+    }
+
+    public static void registerRenderers() {
+        BlockRenderLayerMapImpl.INSTANCE.putBlock(Blocks.OBSERVATION_TABLE, RenderLayer.getCutout());
+        BlockRenderLayerMapImpl.INSTANCE.putBlock(net.minecraft.block.Blocks.FARMLAND, RenderLayer.getCutout());
     }
 }
