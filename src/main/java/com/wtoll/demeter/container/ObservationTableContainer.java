@@ -1,16 +1,16 @@
 package com.wtoll.demeter.container;
 
-import com.wtoll.demeter.api.item.SeedItem;
 import com.wtoll.demeter.block.Blocks;
-import net.fabricmc.fabric.impl.container.ContainerProviderImpl;
+import net.minecraft.block.CropBlock;
 import net.minecraft.container.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.BasicInventory;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.item.AliasedBlockItem;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
 
 public class ObservationTableContainer extends Container {
     private ItemStack inputStack;
@@ -32,7 +32,7 @@ public class ObservationTableContainer extends Container {
         };
         this.inputSlot = this.addSlot(new Slot(this.inventory, 0, 17, 41){
             public boolean canInsert(ItemStack stack) {
-                return stack.getItem() instanceof SeedItem;
+                return (stack.getItem() instanceof BlockItem) && (((BlockItem) stack.getItem()).getBlock() instanceof CropBlock);
             }
         });
 
