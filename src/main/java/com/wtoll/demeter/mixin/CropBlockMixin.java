@@ -255,7 +255,7 @@ public abstract class CropBlockMixin extends PlantBlock implements ICropBlockMix
                 }
             }
         }
-        return moisture;
+        return moisture > 0 ? moisture : 0.00000001f;
     }
 
     @Shadow
