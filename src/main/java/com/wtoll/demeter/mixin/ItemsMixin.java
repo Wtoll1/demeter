@@ -2,10 +2,7 @@ package com.wtoll.demeter.mixin;
 
 import com.wtoll.demeter.api.item.SeedItem;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.spongepowered.asm.mixin.Mixin;
@@ -24,10 +21,10 @@ public class ItemsMixin {
                     callback.setReturnValue(shadow$register(id, (new SeedItem(Blocks.WHEAT, (new Item.Settings()).group(ItemGroup.MATERIALS)))));
                     break;
                 case "carrot":
-                    callback.setReturnValue(shadow$register(id, (new SeedItem(Blocks.CARROTS, (new Item.Settings()).group(ItemGroup.FOOD)))));
+                    callback.setReturnValue(shadow$register(id, (new SeedItem(Blocks.CARROTS, (new Item.Settings()).group(ItemGroup.FOOD).food(FoodComponents.CARROT)))));
                     break;
                 case "potato":
-                    callback.setReturnValue(shadow$register(id, (new SeedItem(Blocks.POTATOES, (new Item.Settings()).group(ItemGroup.FOOD)))));
+                    callback.setReturnValue(shadow$register(id, (new SeedItem(Blocks.POTATOES, (new Item.Settings()).group(ItemGroup.FOOD).food(FoodComponents.POTATO)))));
                     break;
                 case "beetroot_seeds":
                     callback.setReturnValue(shadow$register(id, (new SeedItem(Blocks.BEETROOTS, (new Item.Settings()).group(ItemGroup.MATERIALS)))));
