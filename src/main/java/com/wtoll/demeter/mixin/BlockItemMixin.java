@@ -43,34 +43,6 @@ public abstract class BlockItemMixin extends Item implements DefaultTagItem {
         }
     }
 
-    @Inject(method = "appendTooltip", at = @At("HEAD"))
-    @Environment(EnvType.CLIENT)
-    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo callback) {
-        if (this.getBlock() instanceof CropBlock) {
-            CompoundTag tag = stack.getTag();
-            if (tag != null) {
-                if (tag.getBoolean("observed")) {
-                    CompoundTag properties = stack.getSubTag("BlockStateTag");
-                    if (properties != null) {
-                        Demeter.CROP_PROPERTIES.forEach((property) -> {
-                            Tag propTag = properties.get(property.getName());
-                            if (propTag != null) {
-                                String value = TooltipHelper.parseTooltipValue(propTag.toString());
-                                if (!value.equals("0")) {
-                                    String name = TooltipHelper.parseTooltipValue(property.getName());
-                                    if (property instanceof IntProperty) {
-                                        value = TooltipHelper.toRoman(Integer.parseInt(value));
-                                    }
-                                    tooltip.add(new LiteralText(TooltipHelper.capitalizeTooltip(name) + " " + value));
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
-    }
-
     public CompoundTag getDefaultTag(CompoundTag tag) {
         if (this.getBlock() instanceof CropBlock) {
             CompoundTag blockStateTag = tag.getCompound("BlockStateTag");

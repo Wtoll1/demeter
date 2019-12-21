@@ -263,7 +263,6 @@ public abstract class CropBlockMixin extends PlantBlock implements ICropBlockMix
         return 0;
     }
 
-
     @Shadow
     public int getAge(BlockState state) { return 0; }
 
