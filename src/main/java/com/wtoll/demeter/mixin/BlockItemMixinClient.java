@@ -50,7 +50,7 @@ public class BlockItemMixinClient extends Item {
                                     if (property instanceof IntProperty) {
                                         value = TooltipHelper.toRoman(Integer.parseInt(value));
                                     }
-                                    tooltip.add(new LiteralText(TooltipHelper.capitalizeTooltip(name) + " " + value));
+                                    tooltip.add(new LiteralText( "§7" + TooltipHelper.capitalizeTooltip(name) + " " + value));
                                 }
                             }
                         });
