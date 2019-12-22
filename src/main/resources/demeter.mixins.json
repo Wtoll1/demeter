@@ -10,7 +10,6 @@
     "BlockItemMixin"
   ],
   "client": [
-    "BlockItemMixinClient"
   ],
   "injectors": {
     "defaultRequire": 1
