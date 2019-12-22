@@ -57,7 +57,7 @@ public abstract class BlockItemMixin extends Item implements DefaultTagItem {
             tag.put("BlockStateTag", blockStateTag);
             return tag;
         }
-        return new CompoundTag();
+        return null;
     }
 
     @Shadow
