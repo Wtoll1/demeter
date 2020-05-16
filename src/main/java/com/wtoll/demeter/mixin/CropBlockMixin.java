@@ -6,7 +6,6 @@ import com.wtoll.demeter.Demeter;
 import com.wtoll.demeter.api.mixin.ICropBlockMixin;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.WaterFluid;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,22 +22,27 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import static com.wtoll.demeter.block.Blocks.FARMLAND_TAG;
+
 @Mixin(CropBlock.class)
 public abstract class CropBlockMixin extends PlantBlock implements ICropBlockMixin {
     protected CropBlockMixin(Settings settings) {
         super(settings);
     }
+
+    @Shadow
+    protected static float getAvailableMoisture(Block block, BlockView world, BlockPos pos) { return 0.0f; };
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void initialize(Block.Settings settings, CallbackInfo callback) {
@@ -237,15 +241,15 @@ public abstract class CropBlockMixin extends PlantBlock implements ICropBlockMix
         callback.cancel();
     }
 
-    @Overwrite
-    public static float getAvailableMoisture(Block block, BlockView world, BlockPos pos) {
+    @Inject(at=@At("HEAD"), method="getAvailableMoisture", cancellable = true)
+    private static void Demeter_getAvailableMoisture(Block block, BlockView world, BlockPos pos, CallbackInfoReturnable<Float> info) {
         BlockPos groundPos = pos.down(1);
         int moisture = 0;
         // Iterate through the 9 blocks under the crop
         for (int x = -1; x <= 1; x++) {
             for (int z = -1; z <= 1; z++) {
                 BlockState state = world.getBlockState(groundPos.add(x, 0, z));
-                if (state.getBlock() instanceof FarmlandBlock) {
+                if (state.getBlock() instanceof FarmlandBlock || FARMLAND_TAG.contains(state.getBlock())) {
                     if (state.get(Properties.MOISTURE) >= 7) {
                         moisture++;
                     }
@@ -255,7 +259,7 @@ public abstract class CropBlockMixin extends PlantBlock implements ICropBlockMix
                 }
             }
         }
-        return moisture > 0 ? moisture : 1;
+        info.setReturnValue(moisture > 0 ? (float) moisture : 1.0f);
     }
 
     @Shadow
