@@ -4,10 +4,8 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "CropBlockMixin",
-    "FarmlandBlockMixin",
-    "ItemStackMixin",
-    "BeetrootsBlockMixin",
-    "BlockItemMixin"
+    "AbstractBlockMixin",
+    "StateManagerBuilderMixin"
   ],
   "client": [
   ],

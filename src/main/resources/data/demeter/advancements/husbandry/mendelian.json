@@ -1,0 +1,39 @@
+{
+  "parent": "demeter:husbandry/astute_observation",
+  "display": {
+    "icon": {
+      "item": "minecraft:beetroot_seeds"
+    },
+    "title": {
+      "translate": "advancements.husbandry.mendelian.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.mendelian.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "get_seed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "nbt": "{BlockStateTag: {c_growth: \"9\",c_yield: \"9\"}}",
+            "tag": "demeter:seeds"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_seed"
+    ]
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "parent": "minecraft:husbandry/plant_seed",
+  "display": {
+    "icon": {
+      "item": "minecraft:beetroot"
+    },
+    "title": {
+      "translate": "advancements.husbandry.cultivator.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.cultivator.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "criteria": {
+    "wheat": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:wheat"
+      }
+    },
+    "carrots": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:carrots"
+      }
+    },
+    "potatoes": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:potatoes"
+      }
+    },
+    "beetroots": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:beetroots"
+      }
+    },
+    "melons": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:melon_stem"
+      }
+    },
+    "pumpkins": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:pumpkin_stem"
+      }
+    },
+    "bamboo": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:bamboo_sapling"
+      }
+    },
+    "cocoa": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:cocoa"
+      }
+    },
+    "sugar_cane": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:sugar_cane"
+      }
+    },
+    "sweet_berry": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:sweet_berry_bush"
+      }
+    },
+    "cactus": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:cactus"
+      }
+    },
+    "brown_mushroom": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:brown_mushroom"
+      }
+    },
+    "red_mushroom": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:red_mushroom"
+      }
+    },
+    "kelp": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:kelp"
+      }
+    },
+    "sea_pickle": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:sea_pickle"
+      }
+    },
+    "nether_wart": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:nether_wart"
+      }
+    },
+    "chorus_plant": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:chorus_plant"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "wheat"
+    ],
+    [
+      "carrots"
+    ],
+    [
+      "potatoes"
+    ],
+    [
+      "beetroots"
+    ],
+    [
+      "melons"
+    ],
+    [
+      "pumpkins"
+    ],
+    [
+      "bamboo"
+    ],
+    [
+      "cocoa"
+    ],
+    [
+      "sugar_cane"
+    ],
+    [
+      "sweet_berry"
+    ],
+    [
+      "cactus"
+    ],
+    [
+      "brown_mushroom"
+    ],
+    [
+      "red_mushroom"
+    ],
+    [
+      "kelp"
+    ],
+    [
+      "sea_pickle"
+    ],
+    [
+      "nether_wart"
+    ],
+    [
+      "chorus_plant"
+    ]
+  ]
+}
