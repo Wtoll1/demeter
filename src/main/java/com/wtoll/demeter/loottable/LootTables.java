@@ -1,19 +1,16 @@
 package com.wtoll.demeter.loottable;
 
 import com.wtoll.demeter.Demeter;
+import com.wtoll.demeter.tag.Tags;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPool;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.FabricLootSupplier;
-import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.block.Block;
 import net.minecraft.loot.BinomialLootTableRange;
-import net.minecraft.loot.ConstantLootTableRange;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.predicate.StatePredicate;
-import net.minecraft.predicate.block.BlockStatePredicate;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.apache.commons.lang3.StringUtils;
@@ -28,7 +25,7 @@ public class LootTables {
             LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, supplierBuilder, setter) -> {
                 Block block = Registry.BLOCK.get(new Identifier(id.getNamespace(), StringUtils.removeStart(id.getPath(), "blocks/")));
                 FabricLootSupplier lootTable = (FabricLootSupplier) lootManager.getTable(id);
-                if (BlockTags.CROPS.contains(block)) {
+                if (Tags.CROP.contains(block)) {
                     for (LootPool pool : lootTable.getPools()) {
                         Demeter.YIELD.forState((level) -> {
                             FabricLootPoolBuilder builder = FabricLootPoolBuilder.builder();
