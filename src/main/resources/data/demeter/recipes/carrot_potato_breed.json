@@ -1,6 +1,0 @@
-{
-  "type": "demeter:breeding",
-  "parent1": "minecraft:carrots",
-  "parent2": "minecraft:potatoes",
-  "result": "minecraft:diamond_block"
-}
